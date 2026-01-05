@@ -27,6 +27,9 @@
             line-height: 1.6;
             color: var(--dark);
             background-color: #f5f7fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
         a {
@@ -167,6 +170,11 @@
             cursor: pointer;
         }
         
+        /* Main content area */
+        main {
+            flex: 1;
+        }
+        
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
@@ -301,6 +309,7 @@
             background-color: var(--primary);
             color: white;
             padding: 70px 0 20px;
+            margin-top: auto;
         }
         
         .footer-content {
@@ -356,6 +365,7 @@
         .page-content {
             padding: 80px 0;
             background-color: white;
+            min-height: 60vh;
         }
         
         /* Listings Page */
@@ -539,7 +549,7 @@
     <!-- Header & Navigation -->
     <header>
         <div class="container header-container">
-            <a href="index.html" class="logo">Prime<span>Realty</span></a>
+            <a href="#home" class="logo">Prime<span>Realty</span></a>
             
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -547,26 +557,26 @@
             
             <nav>
                 <ul id="main-nav">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="listings.html">Properties</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#" class="btn">Schedule a Tour</a></li>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#listings" class="nav-link">Properties</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#schedule-tour" class="btn">Schedule a Tour</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content Area (changes per page) -->
-    <main id="page-content">
-        <!-- Home page content will be loaded here by default -->
-        <div id="home-page">
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <!-- Home Page -->
+        <div id="home-page" class="page active-page">
             <!-- Hero Section -->
             <section class="hero">
                 <div class="container">
                     <h1>Find Your Dream Home With Prime Realty</h1>
                     <p>Discover the perfect property from our curated collection of luxury homes, apartments, and commercial spaces in prime locations.</p>
-                    <a href="listings.html" class="btn">Browse Properties</a>
+                    <a href="#listings" class="btn">Browse Properties</a>
                     
                     <div class="search-box">
                         <input type="text" placeholder="City, Neighborhood, or ZIP">
@@ -648,7 +658,7 @@
                     </div>
                     
                     <div style="text-align: center; margin-top: 50px;">
-                        <a href="listings.html" class="btn btn-primary">View All Properties</a>
+                        <a href="#listings" class="btn btn-primary">View All Properties</a>
                     </div>
                 </div>
             </section>
@@ -697,6 +707,276 @@
                 </div>
             </section>
         </div>
+
+        <!-- Listings Page -->
+        <div id="listings-page" class="page">
+            <section class="page-header">
+                <div class="container">
+                    <h1>Property Listings</h1>
+                    <p>Browse our extensive collection of premium properties</p>
+                </div>
+            </section>
+            
+            <section class="page-content">
+                <div class="container">
+                    <div class="listings-header">
+                        <div>
+                            <h2>Available Properties</h2>
+                            <p>Showing 12 of 48 properties</p>
+                        </div>
+                        
+                        <div class="listings-controls">
+                            <select>
+                                <option>Sort by: Newest</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Square Footage</option>
+                            </select>
+                            <button class="btn btn-primary">Filter <i class="fas fa-filter"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="properties-grid">
+                        <!-- Property 1 -->
+                        <div class="property-card">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Modern Villa" class="property-img">
+                            <div class="property-info">
+                                <div class="property-price">$1,250,000</div>
+                                <h3>Modern Villa in Bel Air</h3>
+                                <p class="property-address">123 Hollywood Blvd, Los Angeles, CA</p>
+                                <p>A stunning contemporary villa with panoramic city views, infinity pool, and smart home features.</p>
+                                <div class="property-features">
+                                    <span><i class="fas fa-bed"></i> 5 Beds</span>
+                                    <span><i class="fas fa-bath"></i> 4 Baths</span>
+                                    <span><i class="fas fa-ruler-combined"></i> 4,200 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 2 -->
+                        <div class="property-card">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luxury Apartment" class="property-img">
+                            <div class="property-info">
+                                <div class="property-price">$3,200/month</div>
+                                <h3>Luxury Downtown Apartment</h3>
+                                <p class="property-address">456 Main St, New York, NY</p>
+                                <p>Spacious loft-style apartment in the heart of downtown with concierge service and rooftop access.</p>
+                                <div class="property-features">
+                                    <span><i class="fas fa-bed"></i> 3 Beds</span>
+                                    <span><i class="fas fa-bath"></i> 2 Baths</span>
+                                    <span><i class="fas fa-ruler-combined"></i> 1,800 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 3 -->
+                        <div class="property-card">
+                            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Waterfront Property" class="property-img">
+                            <div class="property-info">
+                                <div class="property-price">$2,750,000</div>
+                                <h3>Waterfront Estate</h3>
+                                <p class="property-address">789 Beach Dr, Miami, FL</p>
+                                <p>Magnificent waterfront property with private dock, pool, and direct beach access.</p>
+                                <div class="property-features">
+                                    <span><i class="fas fa-bed"></i> 6 Beds</span>
+                                    <span><i class="fas fa-bath"></i> 5.5 Baths</span>
+                                    <span><i class="fas fa-ruler-combined"></i> 5,500 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 4 -->
+                        <div class="property-card">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Suburban Home" class="property-img">
+                            <div class="property-info">
+                                <div class="property-price">$895,000</div>
+                                <h3>Suburban Family Home</h3>
+                                <p class="property-address">101 Maple St, Austin, TX</p>
+                                <p>Beautiful 4-bedroom home in a quiet neighborhood with a large backyard and updated kitchen.</p>
+                                <div class="property-features">
+                                    <span><i class="fas fa-bed"></i> 4 Beds</span>
+                                    <span><i class="fas fa-bath"></i> 3 Baths</span>
+                                    <span><i class="fas fa-ruler-combined"></i> 2,800 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 5 -->
+                        <div class="property-card">
+                            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Penthouse" class="property-img">
+                            <div class="property-info">
+                                <div class="property-price">$4,500/month</div>
+                                <h3>Penthouse with Rooftop Terrace</h3>
+                                <p class="property-address">202 Skyline Blvd, Chicago, IL</p>
+                                <p>Luxurious penthouse featuring floor-to-ceiling windows and a private rooftop terrace with city views.</p>
+                                <div class="property-features">
+                                    <span><i class="fas fa-bed"></i> 3 Beds</span>
+                                    <span><i class="fas fa-bath"></i> 3 Baths</span>
+                                    <span><i class="fas fa-ruler-combined"></i> 3,200 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 6 -->
+                        <div class="property-card">
+                            <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mountain Retreat" class="property-img">
+                            <div class="property-info">
+                                <div class="property-price">$1,650,000</div>
+                                <h3>Mountain Retreat</h3>
+                                <p class="property-address">303 Alpine Way, Denver, CO</p>
+                                <p>Secluded mountain home with breathtaking views, hiking trails, and modern amenities.</p>
+                                <div class="property-features">
+                                    <span><i class="fas fa-bed"></i> 4 Beds</span>
+                                    <span><i class="fas fa-bath"></i> 3 Baths</span>
+                                    <span><i class="fas fa-ruler-combined"></i> 3,500 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 50px;">
+                        <button class="btn btn-primary" id="load-more">Load More Properties</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="about-page" class="page">
+            <section class="page-header">
+                <div class="container">
+                    <h1>About Prime Realty</h1>
+                    <p>Your trusted partner in luxury real estate for over 20 years</p>
+                </div>
+            </section>
+            
+            <section class="page-content">
+                <div class="container">
+                    <div class="about-content">
+                        <div>
+                            <h2>Our Story</h2>
+                            <p>Founded in 2003, Prime Realty has established itself as a premier real estate agency specializing in luxury properties. Our team of dedicated professionals brings decades of combined experience to every transaction.</p>
+                            <p>We believe that finding or selling a property should be an exceptional experience. That's why we go above and beyond to understand our clients' unique needs and deliver results that exceed expectations.</p>
+                            <p>With offices in major cities across the country and a global network of partners, we connect buyers and sellers in the most exclusive real estate markets.</p>
+                            <a href="#contact" class="btn" style="margin-top: 20px;">Get in Touch</a>
+                        </div>
+                        
+                        <div class="about-img">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Our Office" style="width: 100%; height: 400px; object-fit: cover;">
+                        </div>
+                    </div>
+                    
+                    <div class="section-title" style="margin-top: 80px;">
+                        <h2>Meet Our Team</h2>
+                        <p>Experienced professionals dedicated to your real estate success</p>
+                    </div>
+                    
+                    <div class="team-grid">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sarah Johnson" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+                            <h3>Sarah Johnson</h3>
+                            <p>CEO & Founder</p>
+                            <p>20+ years in luxury real estate</p>
+                        </div>
+                        
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Michael Chen" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+                            <h3>Michael Chen</h3>
+                            <p>Head of Sales</p>
+                            <p>Specializes in commercial properties</p>
+                        </div>
+                        
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Jessica Williams" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+                            <h3>Jessica Williams</h3>
+                            <p>Senior Property Consultant</p>
+                            <p>Expert in residential luxury homes</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact-page" class="page">
+            <section class="page-header">
+                <div class="container">
+                    <h1>Contact Us</h1>
+                    <p>Get in touch with our team for personalized real estate assistance</p>
+                </div>
+            </section>
+            
+            <section class="page-content">
+                <div class="container">
+                    <div class="contact-container">
+                        <div>
+                            <h2>Send Us a Message</h2>
+                            <p>Fill out the form below and one of our agents will contact you within 24 hours.</p>
+                            
+                            <form class="contact-form" id="contactForm">
+                                <input type="text" placeholder="Your Name" required>
+                                <input type="email" placeholder="Your Email" required>
+                                <input type="tel" placeholder="Your Phone">
+                                <select required>
+                                    <option value="">I'm interested in...</option>
+                                    <option value="buying">Buying a property</option>
+                                    <option value="selling">Selling a property</option>
+                                    <option value="renting">Renting a property</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <textarea rows="5" placeholder="Your Message"></textarea>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                        
+                        <div>
+                            <h2>Contact Information</h2>
+                            <p>Reach out to us through any of the following channels:</p>
+                            
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h3>Our Office</h3>
+                                        <p>123 Business Ave, Suite 100<br>Los Angeles, CA 90001</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h3>Phone Number</h3>
+                                        <p>(555) 123-4567<br>Mon-Fri: 9am-6pm PST</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h3>Email Address</h3>
+                                        <p>info@primerealty.com<br>responses within 24 hours</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 40px;">
+                                <h3>Visit Our Office</h3>
+                                <div style="height: 200px; background-color: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-top: 15px;">
+                                    <p>Map would be displayed here</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -717,11 +997,11 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="listings.html">Properties</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
+                        <li><a href="#home" class="footer-nav-link">Home</a></li>
+                        <li><a href="#listings" class="footer-nav-link">Properties</a></li>
+                        <li><a href="#about" class="footer-nav-link">About Us</a></li>
+                        <li><a href="#contact" class="footer-nav-link">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
                     </ul>
                 </div>
                 
@@ -753,358 +1033,80 @@
         </div>
     </footer>
 
-    <!-- Page Content for other pages (hidden by default) -->
-    <div id="listings-page" style="display: none;">
-        <section class="page-header">
-            <div class="container">
-                <h1>Property Listings</h1>
-                <p>Browse our extensive collection of premium properties</p>
-            </div>
-        </section>
-        
-        <section class="page-content">
-            <div class="container">
-                <div class="listings-header">
-                    <div>
-                        <h2>Available Properties</h2>
-                        <p>Showing 12 of 48 properties</p>
-                    </div>
-                    
-                    <div class="listings-controls">
-                        <select>
-                            <option>Sort by: Newest</option>
-                            <option>Price: Low to High</option>
-                            <option>Price: High to Low</option>
-                            <option>Square Footage</option>
-                        </select>
-                        <button class="btn btn-primary">Filter <i class="fas fa-filter"></i></button>
-                    </div>
-                </div>
-                
-                <div class="properties-grid">
-                    <!-- Listing cards will be generated by JavaScript -->
-                </div>
-                
-                <div style="text-align: center; margin-top: 50px;">
-                    <button class="btn btn-primary" id="load-more">Load More Properties</button>
-                </div>
-            </div>
-        </section>
-    </div>
-    
-    <div id="about-page" style="display: none;">
-        <section class="page-header">
-            <div class="container">
-                <h1>About Prime Realty</h1>
-                <p>Your trusted partner in luxury real estate for over 20 years</p>
-            </div>
-        </section>
-        
-        <section class="page-content">
-            <div class="container">
-                <div class="about-content">
-                    <div>
-                        <h2>Our Story</h2>
-                        <p>Founded in 2003, Prime Realty has established itself as a premier real estate agency specializing in luxury properties. Our team of dedicated professionals brings decades of combined experience to every transaction.</p>
-                        <p>We believe that finding or selling a property should be an exceptional experience. That's why we go above and beyond to understand our clients' unique needs and deliver results that exceed expectations.</p>
-                        <p>With offices in major cities across the country and a global network of partners, we connect buyers and sellers in the most exclusive real estate markets.</p>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;">Get in Touch</a>
-                    </div>
-                    
-                    <div class="about-img">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Our Office" style="width: 100%; height: 400px; object-fit: cover;">
-                    </div>
-                </div>
-                
-                <div class="section-title" style="margin-top: 80px;">
-                    <h2>Meet Our Team</h2>
-                    <p>Experienced professionals dedicated to your real estate success</p>
-                </div>
-                
-                <div class="team-grid">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sarah Johnson" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
-                        <h3>Sarah Johnson</h3>
-                        <p>CEO & Founder</p>
-                        <p>20+ years in luxury real estate</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w-400&q=80" alt="Michael Chen" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
-                        <h3>Michael Chen</h3>
-                        <p>Head of Sales</p>
-                        <p>Specializes in commercial properties</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Jessica Williams" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
-                        <h3>Jessica Williams</h3>
-                        <p>Senior Property Consultant</p>
-                        <p>Expert in residential luxury homes</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    
-    <div id="contact-page" style="display: none;">
-        <section class="page-header">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p>Get in touch with our team for personalized real estate assistance</p>
-            </div>
-        </section>
-        
-        <section class="page-content">
-            <div class="container">
-                <div class="contact-container">
-                    <div>
-                        <h2>Send Us a Message</h2>
-                        <p>Fill out the form below and one of our agents will contact you within 24 hours.</p>
-                        
-                        <form class="contact-form">
-                            <input type="text" placeholder="Your Name" required>
-                            <input type="email" placeholder="Your Email" required>
-                            <input type="tel" placeholder="Your Phone">
-                            <select required>
-                                <option value="">I'm interested in...</option>
-                                <option value="buying">Buying a property</option>
-                                <option value="selling">Selling a property</option>
-                                <option value="renting">Renting a property</option>
-                                <option value="consultation">Consultation</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <textarea rows="5" placeholder="Your Message"></textarea>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
-                    
-                    <div>
-                        <h2>Contact Information</h2>
-                        <p>Reach out to us through any of the following channels:</p>
-                        
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h3>Our Office</h3>
-                                    <p>123 Business Ave, Suite 100<br>Los Angeles, CA 90001</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div>
-                                    <h3>Phone Number</h3>
-                                    <p>(555) 123-4567<br>Mon-Fri: 9am-6pm PST</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <h3>Email Address</h3>
-                                    <p>info@primerealty.com<br>responses within 24 hours</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-top: 40px;">
-                            <h3>Visit Our Office</h3>
-                            <div style="height: 200px; background-color: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-top: 15px;">
-                                <p>Map would be displayed here</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
     <script>
         // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const mainNav = document.getElementById('main-nav');
-            const pageContent = document.getElementById('page-content');
-            const homePage = document.getElementById('home-page');
-            const listingsPage = document.getElementById('listings-page');
-            const aboutPage = document.getElementById('about-page');
-            const contactPage = document.getElementById('contact-page');
+            const pages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const footerNavLinks = document.querySelectorAll('.footer-nav-link');
             
             // Mobile menu toggle
             mobileMenuBtn.addEventListener('click', function() {
                 mainNav.classList.toggle('show');
             });
             
-            // Navigation links
-            document.querySelectorAll('nav a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // If it's a schedule tour button, don't change page
-                    if (this.classList.contains('btn') && !this.getAttribute('href')) {
-                        return;
-                    }
-                    
-                    e.preventDefault();
-                    
-                    // Close mobile menu if open
-                    mainNav.classList.remove('show');
-                    
-                    // Get the page from href
-                    const page = this.getAttribute('href');
-                    
-                    // Update active link
-                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Show the selected page
-                    if (page === 'index.html' || page === '#') {
-                        showPage('home');
-                    } else if (page === 'listings.html') {
-                        showPage('listings');
-                    } else if (page === 'about.html') {
-                        showPage('about');
-                    } else if (page === 'contact.html') {
-                        showPage('contact');
-                    }
-                    
-                    // Scroll to top
-                    window.scrollTo(0, 0);
-                });
-            });
-            
-            // Function to show selected page
-            function showPage(pageName) {
-                // Hide all pages
-                homePage.style.display = 'none';
-                listingsPage.style.display = 'none';
-                aboutPage.style.display = 'none';
-                contactPage.style.display = 'none';
+            // Navigation links click handler
+            function handleNavClick(e) {
+                e.preventDefault();
                 
-                // Show selected page
-                if (pageName === 'home') {
-                    homePage.style.display = 'block';
-                } else if (pageName === 'listings') {
-                    listingsPage.style.display = 'block';
-                    generateListings();
-                } else if (pageName === 'about') {
-                    aboutPage.style.display = 'block';
-                } else if (pageName === 'contact') {
-                    contactPage.style.display = 'block';
+                // Get the target page from href
+                const targetPageId = this.getAttribute('href').substring(1);
+                
+                // Close mobile menu if open
+                mainNav.classList.remove('show');
+                
+                // Update active navigation link
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active-page');
+                    page.style.display = 'none';
+                });
+                
+                // Show target page
+                const targetPage = document.getElementById(`${targetPageId}-page`);
+                if (targetPage) {
+                    targetPage.style.display = 'block';
+                    targetPage.classList.add('active-page');
                 }
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
             }
             
-            // Generate listing cards for listings page
-            function generateListings() {
-                const listingsGrid = document.querySelector('.listings-page .properties-grid') || 
-                                    document.querySelector('#listings-page .properties-grid');
-                
-                if (!listingsGrid) return;
-                
-                const listings = [
-                    {
-                        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                        price: "$1,250,000",
-                        title: "Modern Villa in Bel Air",
-                        address: "123 Hollywood Blvd, Los Angeles, CA",
-                        description: "A stunning contemporary villa with panoramic city views, infinity pool, and smart home features.",
-                        beds: 5,
-                        baths: 4,
-                        sqft: "4,200"
-                    },
-                    {
-                        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                        price: "$3,200/month",
-                        title: "Luxury Downtown Apartment",
-                        address: "456 Main St, New York, NY",
-                        description: "Spacious loft-style apartment in the heart of downtown with concierge service and rooftop access.",
-                        beds: 3,
-                        baths: 2,
-                        sqft: "1,800"
-                    },
-                    {
-                        image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                        price: "$2,750,000",
-                        title: "Waterfront Estate",
-                        address: "789 Beach Dr, Miami, FL",
-                        description: "Magnificent waterfront property with private dock, pool, and direct beach access.",
-                        beds: 6,
-                        baths: "5.5",
-                        sqft: "5,500"
-                    },
-                    {
-                        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                        price: "$895,000",
-                        title: "Suburban Family Home",
-                        address: "101 Maple St, Austin, TX",
-                        description: "Beautiful 4-bedroom home in a quiet neighborhood with a large backyard and updated kitchen.",
-                        beds: 4,
-                        baths: 3,
-                        sqft: "2,800"
-                    },
-                    {
-                        image: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                        price: "$4,500/month",
-                        title: "Penthouse with Rooftop Terrace",
-                        address: "202 Skyline Blvd, Chicago, IL",
-                        description: "Luxurious penthouse featuring floor-to-ceiling windows and a private rooftop terrace with city views.",
-                        beds: 3,
-                        baths: 3,
-                        sqft: "3,200"
-                    },
-                    {
-                        image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                        price: "$1,650,000",
-                        title: "Mountain Retreat",
-                        address: "303 Alpine Way, Denver, CO",
-                        description: "Secluded mountain home with breathtaking views, hiking trails, and modern amenities.",
-                        beds: 4,
-                        baths: 3,
-                        sqft: "3,500"
-                    }
-                ];
-                
-                // Clear existing content
-                listingsGrid.innerHTML = '';
-                
-                // Add listings to the page
-                listings.forEach(listing => {
-                    const listingHTML = `
-                    <div class="property-card">
-                        <img src="${listing.image}" alt="${listing.title}" class="property-img">
-                        <div class="property-info">
-                            <div class="property-price">${listing.price}</div>
-                            <h3>${listing.title}</h3>
-                            <p class="property-address">${listing.address}</p>
-                            <p>${listing.description}</p>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> ${listing.beds} Beds</span>
-                                <span><i class="fas fa-bath"></i> ${listing.baths} Baths</span>
-                                <span><i class="fas fa-ruler-combined"></i> ${listing.sqft} sqft</span>
-                            </div>
-                        </div>
-                    </div>
-                    `;
-                    
-                    listingsGrid.innerHTML += listingHTML;
+            // Set up navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', handleNavClick);
+            });
+            
+            // Set up footer navigation links
+            footerNavLinks.forEach(link => {
+                link.addEventListener('click', handleNavClick);
+            });
+            
+            // Schedule tour button
+            const scheduleTourBtn = document.querySelector('a[href="#schedule-tour"]');
+            if (scheduleTourBtn) {
+                scheduleTourBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Schedule a Tour feature would open a booking form or calendar. For now, please use the Contact page to schedule a tour.');
                 });
             }
             
             // Load more properties button
-            document.addEventListener('click', function(e) {
-                if (e.target && e.target.id === 'load-more') {
+            const loadMoreBtn = document.getElementById('load-more');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
                     alert('Loading more properties... This would typically fetch additional properties from a database.');
-                }
-            });
+                });
+            }
             
             // Contact form submission
-            const contactForm = document.querySelector('.contact-form');
+            const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -1113,8 +1115,39 @@
                 });
             }
             
-            // Initialize the page
-            showPage('home');
+            // Search box functionality
+            const searchBtn = document.querySelector('.search-box .btn-primary');
+            if (searchBtn) {
+                searchBtn.addEventListener('click', function() {
+                    const locationInput = document.querySelector('.search-box input[type="text"]').value;
+                    const propertyType = document.querySelector('.search-box select:nth-of-type(1)').value;
+                    const priceRange = document.querySelector('.search-box select:nth-of-type(2)').value;
+                    
+                    if (!locationInput && !propertyType && !priceRange) {
+                        alert('Please enter search criteria to find properties.');
+                        return;
+                    }
+                    
+                    // Navigate to listings page with search parameters
+                    const navLink = document.querySelector('a[href="#listings"]');
+                    navLink.click();
+                    
+                    // In a real app, we would filter listings based on search criteria
+                    setTimeout(() => {
+                        alert(`Searching for properties in ${locationInput || 'any location'}, type: ${propertyType || 'any'}, price range: ${priceRange || 'any'}. This would filter the listings in a real application.`);
+                    }, 300);
+                });
+            }
+            
+            // Initialize the page - show home page by default
+            pages.forEach(page => {
+                if (page.id !== 'home-page') {
+                    page.style.display = 'none';
+                } else {
+                    page.style.display = 'block';
+                    page.classList.add('active-page');
+                }
+            });
         });
     </script>
 </body>
